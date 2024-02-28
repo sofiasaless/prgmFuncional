@@ -54,3 +54,15 @@
 
 ## INTRODUZINDO O "IF"
 
+*função que multiplicará um número por 2 porém somente se este número for menor ou igual a 100, porque números maiores que 100 já são grandes o suficiente.*
+
+    doubleSmallNumber x = if x > 100  
+                            then x  
+                            else x*2
+
+#
+
+    doubleSmallNumber' x = (if x > 100 then x else x*2) + 1  
+
+*Aquela apóstrofe tem nenhum significado especial na sintaxe do Haskell. Ele é um caracter válido para ser usado em um nome de função. Normalmente nós utilizamos o ' para designar uma versão especifica de uma função (aqueles que não são preguiçosos) ou em uma versão levemente modificada de uma função ou variável.*
+
