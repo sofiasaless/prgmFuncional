@@ -182,3 +182,43 @@
 
 ## COMPREENDENDO LISTAS
 
+*A compreensão de lista que podemos usar é [x***2 | x <- [1..10]]. x é traçado a partir de [1..10] e para cada elemento em [1..10] (que temos vinculado a x) teremos esse elemento dobrado. Aqui esta a compreensão em ação*
+
+    ghci> [x*2 | x <- [1..10]]  
+    [2,4,6,8,10,12,14,16,18,20]
+
+*Agora vamos adicionar uma condição (ou um predicado) nesta compreensão. Predicados ficam depois dessa parte obrigatória sendo separado por vírgula. Digamos que nós queremos somente os elementos que, dobrados, são maiores ou igual a 12.*
+
+    ghci> [x*2 | x <- [1..10], x*2 >= 12]  
+    [12,14,16,18,20] 
+
+*E se nós quisermos todos os números entre 50 e 100 onde o resto da divisão pelo número 7 fosse 3?*
+
+    ghci> [ x | x <- [50..100], x `mod` 7 == 3]  
+    [52,59,66,73,80,87,94]
+
+*Se eu tiver duas listas, [2,5,10] e [8,10,11] e quiser obter o produto de todas as combinações possíveis entre números destas listas:*
+
+    ghci> [ x*y | x <- [2,5,10], y <- [8,10,11]]  
+    [16,20,22,40,50,55,80,100,110]
+
+*E se eu quiser todos os possíveis produtos que sejam maiores do que 50?*
+
+    ghci> [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]  
+    [55,80,100,110]
+
+**Versão alternativa do *length***
+
+    length' xs = sum [1 | _ <- xs]
+
+- "_" significa que não importa o que vai ser extraído da lista, portanto ao invés de escrever o nome da variável que nunca será usada, escreve _
+
+*Strings são listas, nós devemos usar compreensão de listas para processar e produzir strings. Função que recebe uma string e deixa apenas as letras maiúsculas:*
+
+    removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
+
+    ghci> removeNonUppercase "Hahaha! Ahahaha!"  
+    "HA"  
+    ghci> removeNonUppercase "EUnaoGOSTODEGATOS"  
+    "EUGOSTODEGATOS"
+
