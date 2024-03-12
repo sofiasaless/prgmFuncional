@@ -11,9 +11,9 @@ matricula = "556347"
 -- então u e v são mútiplos. Construa 
 -- função que determine se duas 
 -- tuplas de inteiros  são múltiplas.
-isMult :: (Int,Int) -> (Int, Int) -> Bool
-isMult u v = False
-   
+isMult :: (Int,Int) -> (Int, Int) -> Bool    
+isMult u v = length [k | k <- [1..100], k * fst u == fst v && k * fst v == fst u || k * snd v == snd u && k * snd u == snd v] > 0
+
 -- 2
 -- Sejam todos os triângulos retângulos
 -- de perímetro p e de lados inteiros.
@@ -23,4 +23,4 @@ isMult u v = False
 -- o total destes triângulos dado p .
 
 tot'tri  :: Int -> Int
-tot'tri p = 0
+tot'tri p = length [(a, b, c) | c <- [1..p], b <- [c..p], a <- [b..p], a^2 == b^2 + c^2, a+b+c == p]
