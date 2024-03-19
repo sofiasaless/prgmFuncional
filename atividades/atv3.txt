@@ -1,0 +1,23 @@
+Universidade Federal do Ceará - Quixadá
+Programaçção Funcional
+Professor Ricardo Reis 
+Atividae 03
+
+tls: 
+
+Recebe uma string s e retorna uma lista de tuplas (c, f) onde c é um caractere em s e f é o total de vezes que c ocorre em s. Exemplo, 
+
+>> tls "aabcbaccc"
+[('a', 3), ('b', 2), ('c', 4)]
+
+OBS: a ordem das tuplas na lista de saída não é importante.
+
+----------------
+sfq:
+
+Recebe uma string s de entrada e retorna uma tupla do tipo (p,f) onde p é a palavra mais frequente em s e f o valor de quantas vezes ela ocorre. Exemplo,
+
+>> sfq "a casa. Ela casa. casa! 
+("casa", 3)
+
+OBS:  Note que tokens como ponto e exclamação adjacentes as palavras não devem interferir na contagem. 
