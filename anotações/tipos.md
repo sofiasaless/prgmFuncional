@@ -98,3 +98,15 @@ Ao invés de ter acesso apenas ao head e ao tail realizando (x:xs), basta usar u
     >> head' [1,3,10,12,14]
         "lista inteira: [1,3,10,12,14] head: 1
 
+### Case Expressions
+
+Case-switch em haskell. É bastante útil caso seja necessário fazer fluxos condicionais simples e exaustivos.
+
+    centralTelefonica :: Integral a => a -> String
+    centralTelefonica opcao = case opcao of
+    1 -> "Parabens ! Voce discou 1"
+    2 -> "Parabens ! Voce discou 2"
+    3 -> "Parabens ! Voce discou 3"
+    _ -> "Que pena, voce discou outro numero !"
+
+A sintaxe de uma case-expression é bastante simples, basta que após o "=" seja posto: **case < nomeParametro > of** e em seguida haja a especificação das opções permitidas e seus respectivos retornos após a seta ("->").
