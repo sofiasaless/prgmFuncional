@@ -6,7 +6,19 @@ matricula = "556347"
 
 replace :: [Char] -> [Char] -> [Char] -> [Char]
 replace [] [] [] = []
-replace text from to = []
+replace text from to = substituindo text from to
+                    where
+                        substituindo :: [Char] -> [Char] -> [Char] -> [Char]
+                        substituindo [] _ _ = []
+                        substituindo frase@(x:xs) aparicoes substituto
+                            | identificando aparicoes frase = substituto ++ substituindo (drop (length aparicoes) frase) aparicoes substituto
+                            | otherwise = x : substituindo xs aparicoes substituto
+                            
+                        identificando :: [Char] -> [Char] -> Bool
+                        -- as condições vão ser atendidas a partir da recursão
+                        identificando "" _ = True
+                        identificando _ "" = False
+                        identificando (x:xs) (y:ys) = x == y && identificando xs ys
 
 -- 2
 
@@ -35,6 +47,6 @@ selectionSort ls = ordenando (maximum ls) ls
 
                     removerElem :: Eq a => a -> [a] -> [a]
                     removerElem _ [] = []
-                    removerElem elem (x:xs)
-                        | elem == x = removerElem elem xs
-                        | otherwise = x : removerElem elem xs
+                    removerElem elemento (x:xs)
+                        | elemento == x = removerElem elemento xs
+                        | otherwise = x : removerElem elemento xs
